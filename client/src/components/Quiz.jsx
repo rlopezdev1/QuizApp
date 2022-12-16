@@ -1,16 +1,25 @@
 import React from 'react';
-import Question from './Question'
-import Awnsers from './Awnsers';
+
+import Button from 'react-bootstrap/Button';
 
 
-const Quiz = () => {
+
+const Quiz = (props) => {
     return (
         <div className='Quiz'>  
-            <span> Question 5 of 5 </span>
+            <span> Question {props.index} of 5 </span>
             <hr></hr>
-            <Question/>
-            <Awnsers />
-           
+            <div className="Question">
+                <p>{props.question.question}</p>
+            </div>
+            <div className='container'>
+                <div className='awnsers'><p>{ props.question.awnserA }</p></div>
+                <div className='awnsers'><p>{ props.question.awnserB }</p></div>
+                <div className='awnsers'><p>{ props.question.awnserC }</p></div>
+                <div className='awnsers'><p>{ props.question.awnserD }</p></div>
+            </div>
+            
+            <Button variant='secondary' size='lg' onClick={() => props.handleNextClick()}> Next </Button>
         
             
 
@@ -19,3 +28,5 @@ const Quiz = () => {
 }
 
 export default Quiz;
+
+
