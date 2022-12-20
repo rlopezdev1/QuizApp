@@ -1,8 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    
-
 }
 
 
@@ -22,6 +20,7 @@ body {
 }
 
 
+
 .Quiz span {
     color: teal;
     font-weight: bold;
@@ -32,11 +31,17 @@ body {
     margin-bottom: 10px;
 }
 
-.awnsers {
-    background-color: rgb(193, 192, 192);
-    color: rgb(86, 86, 86);
+
+
+button {
+    
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
-    
+    text-align: left;
+    width: 100%;
 }
+
+
+
+

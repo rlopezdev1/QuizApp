@@ -7,21 +7,39 @@ import { questionList } from './data.js'
 import '../App.css';
 
 
-import 'bootstrap/dist/css/bootstrap.css'
 
 
 const App = () => {
     const [index, setIndex ] = useState(0);
-    const [nextQuestion, setNextQuestion] = useState(false);
+    const [state, setState ] = useState(true);
+
+    const [choices, setChoices] = useState([]);
+    
 
     let question = questionList[index];
+    const correctAwnsers = [];
+    
+
+
+    questionList.forEach( question => {
+        correctAwnsers.push(question.correctAwnser);
+    } )
 
     function handleNextClick() {
-        setIndex(index + 1);
+        if(state === true) {
+            setState(false);
+        } else {
+            setIndex(index + 1);
+        }
+    
     }
 
-
     
+
+
+    console.log("Correct Awnsers: " + correctAwnsers);
+    console.log("Selected Awnsers: " + choices);
+
 
    return (
         <div className="App">
@@ -31,7 +49,7 @@ const App = () => {
                     
                 </div> 
             ) }
-            { index !== 0 && <Quiz question={question} index={index} handleNextClick={handleNextClick}  /> }
+            { state === false && <Quiz choices={choices} correctAwnsers={correctAwnsers} setChoices={setChoices} question={question} index={index} setIndex={setIndex} questionList={questionList} handleNextClick={ ()=> handleNextClick() }  /> }
             
             
             
